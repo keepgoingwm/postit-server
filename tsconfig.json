@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "lib": ["es2015"],
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noImplicitUseStrict": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "baseUrl": ".",
+    "paths": {},
+    "rootDir": "./src",
+    "outDir": "lib"
+  },
+  "include": ["src/*.ts"]
+}
