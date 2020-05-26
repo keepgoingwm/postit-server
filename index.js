@@ -1,3 +1,3 @@
-const createServer = require('./lib/server')
+const { createServer } = require('./lib/postit-server')
 
 createServer()

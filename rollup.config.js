@@ -1,19 +1,19 @@
 const path = require('path')
 const { readFileSync } = require('fs')
 const glob = require('glob')
-// const nodeResolve = require('rollup-plugin-node-resolve')
+const nodeResolve = require('rollup-plugin-node-resolve')
 const typescript = require('rollup-plugin-typescript2')
-// const commonjs = require('rollup-plugin-commonjs')
+const commonjs = require('rollup-plugin-commonjs')
+const replace = require('rollup-plugin-replace')
 // const multiEntry = require('rollup-plugin-multi-entry')
 // const sourcemaps = require('rollup-plugin-sourcemaps')
 // const alias = require('rollup-plugin-alias')
-// const replace = require('rollup-plugin-replace')
 // const cleanup = require('rollup-plugin-cleanup')
 // const handleBars = require('handlebars')
 
 const rootPkgJsonData = require('./package.json')
 
-
+let isDev = detectIsDev()
 module.exports = buildConfigs()
 
 function buildConfigs() {
@@ -32,20 +32,19 @@ function buildConfigs() {
 // }
 
 function buildBaseConfig() {
-  let isDev = detectIsDev()
   let moduleType = process.env.TYPE
   let output = []
 
   if (moduleType === 'cjs' || !moduleType) {
     output.push({
-      file: 'lib/server.js',
+      file: 'lib/postit-server.js',
       format: 'cjs',
       sourcemap: isDev
     })
   }
   if (moduleType === 'umd' || !moduleType) {
     output.push({
-      file: 'lib/server.umd.js',
+      file: 'lib/postit-server.umd.js',
       format: 'umd',
       name: 'PostitServer',
       sourcemap: isDev
@@ -53,25 +52,37 @@ function buildBaseConfig() {
   }
   if (moduleType === 'esm' || !moduleType) {
     output.push({
-      file: 'lib/server.esm.js',
+      file: 'lib/postit-server.esm.js',
       format: 'esm',
       sourcemap: isDev
     })
   }
 
   return {
-    input: 'src/server.ts',
+    input: 'src/index.ts',
     output
   }
 }
 
 function buildPluginsConfig() {
+  let typescriptConfig = {}
+
   return [
-    typescript( /*{ plugin options }*/ )
+    typescript(typescriptConfig),
+    nodeResolve({
+      only: ['tslib'] // the only external module we want to bundle
+    }),
+    commonjs(), // for fast-deep-equal import
+    replace({
+      delimiters: ['<%= ', ' %>'],
+      values: {
+        version: rootPkgJsonData.version,
+        releaseDate: new Date().toISOString().replace(/T.*/, '')
+        // ^TODO: store this in package.json for easier old-release recreation
+      }
+    })
   ]
 }
-
-
 
 function detectIsDev() {
   if (!/^(development|production)$/.test(process.env.BUILD)) {
