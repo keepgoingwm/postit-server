@@ -99,6 +99,13 @@
   dependencies:
     "@types/koa" "*"
 
+"@types/koa-log4@^2.3.2":
+  version "2.3.2"
+  resolved "http://10.158.249.13:4873/@types%2fkoa-log4/-/koa-log4-2.3.2.tgz#e590ff95dbc9e212c75f5f353b49692cf829223d"
+  dependencies:
+    "@types/koa" "*"
+    log4js "^3.0.0"
+
 "@types/koa@*", "@types/koa@^2.11.3":
   version "2.11.3"
   resolved "http://10.158.249.13:4873/@types%2fkoa/-/koa-2.11.3.tgz#540ece376581b12beadf9a417dd1731bc31c16ce"
@@ -265,6 +272,10 @@ chardet@^0.7.0:
   version "0.7.0"
   resolved "http://10.158.249.13:4873/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
 
+circular-json@^0.5.5:
+  version "0.5.9"
+  resolved "http://10.158.249.13:4873/circular-json/-/circular-json-0.5.9.tgz#932763ae88f4f7dead7a0d09c8a51a4743a53b1d"
+
 cli-cursor@^3.1.0:
   version "3.1.0"
   resolved "http://10.158.249.13:4873/cli-cursor/-/cli-cursor-3.1.0.tgz#264305a7ae490d1d03bf0c9ba7c925d1753af307"
@@ -328,6 +339,10 @@ cookies@~0.8.0:
     depd "~2.0.0"
     keygrip "~1.1.0"
 
+core-util-is@~1.0.0:
+  version "1.0.2"
+  resolved "http://10.158.249.13:4873/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+
 cross-spawn@^6.0.5:
   version "6.0.5"
   resolved "http://10.158.249.13:4873/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
@@ -338,11 +353,21 @@ cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
+date-format@^1.2.0:
+  version "1.2.0"
+  resolved "http://10.158.249.13:4873/date-format/-/date-format-1.2.0.tgz#615e828e233dd1ab9bb9ae0950e0ceccfa6ecad8"
+
 debug@^2.6.9:
   version "2.6.9"
   resolved "http://10.158.249.13:4873/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
     ms "2.0.0"
+
+debug@^3.1.0:
+  version "3.2.6"
+  resolved "http://10.158.249.13:4873/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
+  dependencies:
+    ms "^2.1.1"
 
 debug@^4.0.1:
   version "4.1.1"
@@ -814,7 +839,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.4:
+inherits@2, inherits@2.0.4, inherits@~2.0.3:
   version "2.0.4"
   resolved "http://10.158.249.13:4873/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
 
@@ -896,7 +921,7 @@ is-symbol@^1.0.2:
   dependencies:
     has-symbols "^1.0.1"
 
-isarray@^1.0.0:
+isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "http://10.158.249.13:4873/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
@@ -951,6 +976,12 @@ koa-convert@^1.2.0:
   dependencies:
     co "^4.6.0"
     koa-compose "^3.0.0"
+
+koa-log4@^2.3.2:
+  version "2.3.2"
+  resolved "http://10.158.249.13:4873/koa-log4/-/koa-log4-2.3.2.tgz#91f79a14ac75c9e36cb53dfbaccb00d5482c4c12"
+  dependencies:
+    log4js "^3.0.6"
 
 koa@^2.12.0:
   version "2.12.0"
@@ -1012,6 +1043,16 @@ locate-path@^5.0.0:
 lodash@^4.17.14, lodash@^4.17.15:
   version "4.17.15"
   resolved "http://10.158.249.13:4873/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+
+log4js@^3.0.0, log4js@^3.0.6:
+  version "3.0.6"
+  resolved "http://10.158.249.13:4873/log4js/-/log4js-3.0.6.tgz#e6caced94967eeeb9ce399f9f8682a4b2b28c8ff"
+  dependencies:
+    circular-json "^0.5.5"
+    date-format "^1.2.0"
+    debug "^3.1.0"
+    rfdc "^1.1.2"
+    streamroller "0.7.0"
 
 magic-string@^0.25.2:
   version "0.25.7"
@@ -1253,6 +1294,10 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "http://10.158.249.13:4873/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
+process-nextick-args@~2.0.0:
+  version "2.0.1"
+  resolved "http://10.158.249.13:4873/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "http://10.158.249.13:4873/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
@@ -1275,6 +1320,18 @@ read-pkg@^2.0.0:
     load-json-file "^2.0.0"
     normalize-package-data "^2.3.2"
     path-type "^2.0.0"
+
+readable-stream@^2.3.0:
+  version "2.3.7"
+  resolved "http://10.158.249.13:4873/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
 
 regexpp@^2.0.1:
   version "2.0.1"
@@ -1306,6 +1363,10 @@ restore-cursor@^3.1.0:
   dependencies:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
+
+rfdc@^1.1.2:
+  version "1.1.4"
+  resolved "http://10.158.249.13:4873/rfdc/-/rfdc-1.1.4.tgz#ba72cc1367a0ccd9cf81a870b3b58bd3ad07f8c2"
 
 rimraf@2.6.3:
   version "2.6.3"
@@ -1372,7 +1433,7 @@ rxjs@^6.5.3:
   dependencies:
     tslib "^1.9.0"
 
-safe-buffer@5.1.2:
+safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "http://10.158.249.13:4873/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
 
@@ -1448,6 +1509,15 @@ sprintf-js@~1.0.2:
   version "1.5.0"
   resolved "http://10.158.249.13:4873/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
 
+streamroller@0.7.0:
+  version "0.7.0"
+  resolved "http://10.158.249.13:4873/streamroller/-/streamroller-0.7.0.tgz#a1d1b7cf83d39afb0d63049a5acbf93493bdf64b"
+  dependencies:
+    date-format "^1.2.0"
+    debug "^3.1.0"
+    mkdirp "^0.5.1"
+    readable-stream "^2.3.0"
+
 string-width@^3.0.0:
   version "3.1.0"
   resolved "http://10.158.249.13:4873/string-width/-/string-width-3.1.0.tgz#22767be21b62af1081574306f69ac51b62203961"
@@ -1493,6 +1563,12 @@ string.prototype.trimstart@^1.0.0:
   dependencies:
     define-properties "^1.1.3"
     es-abstract "^1.17.5"
+
+string_decoder@~1.1.1:
+  version "1.1.1"
+  resolved "http://10.158.249.13:4873/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
+  dependencies:
+    safe-buffer "~5.1.0"
 
 strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
@@ -1603,6 +1679,10 @@ uri-js@^4.2.2:
   resolved "http://10.158.249.13:4873/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
   dependencies:
     punycode "^2.1.0"
+
+util-deprecate@~1.0.1:
+  version "1.0.2"
+  resolved "http://10.158.249.13:4873/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"

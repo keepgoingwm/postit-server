@@ -1,7 +1,7 @@
 import { Lifecycles } from './lifecycle'
 
 export default class Postit {
-  start(): void {
+  run(): void {
     Lifecycles.forEach(e => {
       console.log(e)
     })

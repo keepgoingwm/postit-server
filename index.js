@@ -1,3 +1,4 @@
-const { createServer } = require('./lib/postit-server')
+const { Server } = require('./lib/postit-server')
 
-createServer()
+let server = new Server()
+server.start()

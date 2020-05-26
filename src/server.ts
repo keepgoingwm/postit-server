@@ -1,18 +1,36 @@
-import Koa, { Context } from 'koa'
-import Postit from './core/index'
+import Koa, { Context, Next } from 'koa'
+import { accessLogger, logger, Logger } from './logger'
+import Postit from './core'
 
-interface ServerOptions {
+export interface ServerOptions {
   port?: number
 }
 
-export default function createServer(options: ServerOptions = {}) {
-  const app: Koa = new Koa()
+export default class Server {
+  app: Koa
+  logger: Logger = logger
+  options: ServerOptions = {}
 
-  app.use((ctx: Context) => {
-    ctx.body = 'hello'
-    let postit: Postit = new Postit()
-    console.log(postit)
-  })
+  constructor({
+    port = 3000
+  }: ServerOptions = {}) {
+    this.options.port = port
+  }
 
-  app.listen(options.port || 3000)
+  start() {
+    this.app = new Koa()
+
+    this.app.use(accessLogger())
+    this.app.on('error', err => {
+      this.logger.error(err)
+    })
+
+    this.app.use((ctx: Context, next: Next) => {
+      ctx.body = 'hello'
+      let postit: Postit = new Postit()
+      this.logger.info(postit)
+    })
+
+    this.app.listen(this.options.port)
+  }
 }

@@ -42,14 +42,6 @@ function buildBaseConfig() {
       sourcemap: isDev
     })
   }
-  if (moduleType === 'umd' || !moduleType) {
-    output.push({
-      file: 'lib/postit-server.umd.js',
-      format: 'umd',
-      name: 'PostitServer',
-      sourcemap: isDev
-    })
-  }
   if (moduleType === 'esm' || !moduleType) {
     output.push({
       file: 'lib/postit-server.esm.js',

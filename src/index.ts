@@ -3,4 +3,4 @@
 
 export const version = '<%= version %>'
 
-export { default as createServer } from './server'
+export { default as Server, ServerOptions } from './server'
