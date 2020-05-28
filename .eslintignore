@@ -1,0 +1,8 @@
+/node_modules/*
+/lib/*
+
+eslint.json
+tslint.json
+tsconfig.dts.json
+tsconfig.json
+rollup.config.js
