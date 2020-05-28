@@ -10,6 +10,7 @@
     "tsc:dts": "tsc -p tsconfig.dts.json",
     "build": "rollup -c --environment BUILD:production",
     "dev": "rollup -c --environment BUILD:development --watch",
+    "server": "nodemon index.js",
     "test": "echo 'test'",
     "preversion": "npm test",
     "version": "npm run build && git add -A .",
@@ -32,13 +33,13 @@
   },
   "homepage": "https://github.com/keepgoingwm/postit-server#readme",
   "dependencies": {
-    "rc": "^1.2.8"
-  },
-  "peerDependencies": {
+    "crypto": "^1.0.1",
+    "rc": "^1.2.8",
     "koa": "^2.12.0",
     "koa-log4": "^2.3.2",
     "koa-rest-router": "^1.0.1"
   },
+  "peerDependencies": {},
   "devDependencies": {
     "@types/koa": "^2.11.3",
     "@types/koa-log4": "^2.3.2",
@@ -48,6 +49,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4",
     "rollup": "^2.10.9",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -55,5 +57,15 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "watch": [
+      "lib/",
+      "index"
+    ]
   }
 }
