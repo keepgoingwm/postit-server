@@ -1,6 +1,6 @@
 {
   "name": "@postit/server",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -10,7 +10,12 @@
     "tsc:dts": "tsc -p tsconfig.dts.json",
     "build": "rollup -c --environment BUILD:production",
     "dev": "rollup -c --environment BUILD:development --watch",
-    "test": "test"
+    "test": "echo 'test'",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A .",
+    "postversion": "",
+    "postversion-backup": "git push && git push --tags",
+    "ver:patch": "npm version patch"
   },
   "repository": {
     "type": "git",

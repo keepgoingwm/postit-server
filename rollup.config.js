@@ -11,8 +11,6 @@ const replace = require('rollup-plugin-replace')
 // const cleanup = require('rollup-plugin-cleanup')
 // const handleBars = require('handlebars')
 
-const rootPkgJsonData = require('./package.json')
-
 let isDev = detectIsDev()
 module.exports = buildConfigs()
 
@@ -69,7 +67,7 @@ function buildPluginsConfig() {
     replace({
       delimiters: ['<%= ', ' %>'],
       values: {
-        version: rootPkgJsonData.version,
+        version: process.env.npm_package_version,
         releaseDate: new Date().toISOString().replace(/T.*/, ''),
         // ^TODO: store this in package.json for easier old-release recreation
         apiPrefix: '/v1'
