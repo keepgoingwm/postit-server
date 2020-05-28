@@ -31,7 +31,9 @@
     "url": "https://github.com/keepgoingwm/postit-server/issues"
   },
   "homepage": "https://github.com/keepgoingwm/postit-server#readme",
-  "dependencies": {},
+  "dependencies": {
+    "rc": "^1.2.8"
+  },
   "peerDependencies": {
     "koa": "^2.12.0",
     "koa-log4": "^2.3.2",

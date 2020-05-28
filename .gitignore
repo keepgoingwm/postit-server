@@ -3,4 +3,4 @@
 /lib/*.map
 *.log
 
-logger.config.json
+*.config.json

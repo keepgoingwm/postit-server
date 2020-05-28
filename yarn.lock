@@ -385,6 +385,10 @@ deep-equal@~1.0.1:
   version "1.0.1"
   resolved "http://10.158.249.13:4873/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
 
+deep-extend@^0.6.0:
+  version "0.6.0"
+  resolved "http://10.158.249.13:4873/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
+
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "http://10.158.249.13:4873/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
@@ -864,6 +868,10 @@ inherits@2.0.1:
   version "2.0.1"
   resolved "http://10.158.249.13:4873/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
+ini@~1.3.0:
+  version "1.3.5"
+  resolved "http://10.158.249.13:4873/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+
 inquirer@^7.0.0:
   version "7.1.0"
   resolved "http://10.158.249.13:4873/inquirer/-/inquirer-7.1.0.tgz#1298a01859883e17c7264b82870ae1034f92dd29"
@@ -1171,7 +1179,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.5:
+minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "http://10.158.249.13:4873/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
 
@@ -1399,6 +1407,15 @@ progress@^2.0.0:
 punycode@^2.1.0:
   version "2.1.1"
   resolved "http://10.158.249.13:4873/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
+
+rc@^1.2.8:
+  version "1.2.8"
+  resolved "http://10.158.249.13:4873/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
+  dependencies:
+    deep-extend "^0.6.0"
+    ini "~1.3.0"
+    minimist "^1.2.0"
+    strip-json-comments "~2.0.1"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -1689,6 +1706,10 @@ strip-bom@^3.0.0:
 strip-json-comments@^3.0.1:
   version "3.1.0"
   resolved "http://10.158.249.13:4873/strip-json-comments/-/strip-json-comments-3.1.0.tgz#7638d31422129ecf4457440009fba03f9f9ac180"
+
+strip-json-comments@~2.0.1:
+  version "2.0.1"
+  resolved "http://10.158.249.13:4873/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
 supports-color@^5.3.0:
   version "5.5.0"
