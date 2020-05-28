@@ -52,6 +52,7 @@ function buildBaseConfig() {
 
   return {
     input: 'src/index.ts',
+    external: ['koa', 'koa-log4', 'koa-rest-router'],
     output
   }
 }
@@ -69,8 +70,9 @@ function buildPluginsConfig() {
       delimiters: ['<%= ', ' %>'],
       values: {
         version: rootPkgJsonData.version,
-        releaseDate: new Date().toISOString().replace(/T.*/, '')
+        releaseDate: new Date().toISOString().replace(/T.*/, ''),
         // ^TODO: store this in package.json for easier old-release recreation
+        apiPrefix: '/v1'
       }
     })
   ]

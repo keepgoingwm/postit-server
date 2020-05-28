@@ -1,6 +1,7 @@
-import Koa, { Context, Next } from 'koa'
+import Koa from 'koa'
 import { accessLogger, logger, Logger } from './logger'
-import Postit from './core'
+// import Postit from './core'
+import router from './router'
 
 export interface ServerOptions {
   port?: number
@@ -25,11 +26,12 @@ export default class Server {
       this.logger.error(err)
     })
 
-    this.app.use((ctx: Context, next: Next) => {
-      ctx.body = 'hello'
-      let postit: Postit = new Postit()
-      this.logger.info(postit)
-    })
+    this.app.use(router.middleware())
+    // this.app.use((ctx: Context, next: Next) => {
+    //   ctx.body = 'hello'
+    //   let postit: Postit = new Postit()
+    //   this.logger.info(postit)
+    // })
 
     this.app.listen(this.options.port)
   }
