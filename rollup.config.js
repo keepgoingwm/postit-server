@@ -1,10 +1,11 @@
 const path = require('path')
 const { readFileSync } = require('fs')
 const glob = require('glob')
-const nodeResolve = require('rollup-plugin-node-resolve')
+const resolve = require('rollup-plugin-node-resolve')
 const typescript = require('rollup-plugin-typescript2')
 const commonjs = require('rollup-plugin-commonjs')
 const replace = require('rollup-plugin-replace')
+const builtins = require('builtin-modules')
 // const multiEntry = require('rollup-plugin-multi-entry')
 // const sourcemaps = require('rollup-plugin-sourcemaps')
 // const alias = require('rollup-plugin-alias')
@@ -50,7 +51,7 @@ function buildBaseConfig() {
 
   return {
     input: 'src/index.ts',
-    external: ['koa', 'koa-log4', 'koa-rest-router'],
+    external: [...builtins, 'koa', 'koa-log4', 'koa-rest-router'],
     output
   }
 }
@@ -59,11 +60,14 @@ function buildPluginsConfig() {
   let typescriptConfig = {}
 
   return [
-    typescript(typescriptConfig),
-    nodeResolve({
-      only: ['tslib'] // the only external module we want to bundle
+    resolve({
+      customResolveOptions: {
+        moduleDirectory: 'node_modules'
+      },
+      only: ['tslib', 'ini', 'strip-json-comments'] // the only external module we want to bundle
     }),
     commonjs(), // for fast-deep-equal import
+    typescript(typescriptConfig),
     replace({
       delimiters: ['<%= ', ' %>'],
       values: {
