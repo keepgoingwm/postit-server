@@ -3,4 +3,4 @@
 /lib/*.map
 *.log
 
-*.config.json
+.postitrc

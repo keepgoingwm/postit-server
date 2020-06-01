@@ -8,4 +8,4 @@ tsconfig.json
 rollup.config.js
 .travis.yml
 
-*.config.json
+.postitrc

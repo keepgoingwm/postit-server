@@ -1,9 +1,11 @@
 import rc from 'rc'
 
-import loggerDefaultConfig from '../config/logger.default.config'
+import loggerDefaultConfig from './logger.default.config'
+import coreDefaultConfig from './core.default.config'
 
 const conf = rc('postit', {
-  logger: loggerDefaultConfig
+  logger: loggerDefaultConfig,
+  core: coreDefaultConfig
 })
 
 export default conf
