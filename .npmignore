@@ -8,4 +8,5 @@ tsconfig.json
 rollup.config.js
 .travis.yml
 
-.postitrc
+config/*
+!config/default.example.js

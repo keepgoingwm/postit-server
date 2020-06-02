@@ -1,6 +1,5 @@
 import Plugable, { pluginsConfig } from './plugable'
 // import { Lifecycles } from './lifecycle'
-import conf from './config';
 
 export interface PostitOptions {
   plugins?: pluginsConfig[]
@@ -12,7 +11,7 @@ export default class Postit extends Plugable {
   uid: number
   options: PostitOptions
 
-  constructor(options: PostitOptions = conf.core) {
+  constructor(options: PostitOptions) {
     super(options.plugins)
     // TODO 合并配置
     this.options = options

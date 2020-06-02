@@ -6,3 +6,6 @@ tslint.json
 tsconfig.dts.json
 tsconfig.json
 rollup.config.js
+
+/config/*
+!config/default.example.js

@@ -51,7 +51,7 @@ function buildBaseConfig() {
 
   return {
     input: 'src/index.ts',
-    external: [...builtins, 'koa', 'koa-log4', 'koa-rest-router'],
+    external: [...builtins, 'koa', 'koa-log4', 'koa-rest-router', 'config'],
     output
   }
 }

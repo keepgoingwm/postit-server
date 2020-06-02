@@ -1,11 +1,15 @@
-import rc from 'rc'
+import nodeConfig from 'config'
 
-import loggerDefaultConfig from './logger.default.config'
-import coreDefaultConfig from './core.default.config'
+const postitConfig = nodeConfig.get('postit')
 
-const conf = rc('postit', {
+import loggerDefaultConfig from './logger.default'
+import coreDefaultConfig from './core.default'
+
+const conf = postitConfig.util.extendDeep({
   logger: loggerDefaultConfig,
   core: coreDefaultConfig
-})
+}, postitConfig)
+
+export const mergeConfig = postitConfig.util.extendDeep
 
 export default conf

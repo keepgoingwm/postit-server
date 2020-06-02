@@ -3,4 +3,5 @@
 /lib/*.map
 *.log
 
-.postitrc
+config/*
+!config/default.example.js
