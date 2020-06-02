@@ -1,5 +1,5 @@
 import HandlerStore, {
-  HandlerRawOptions, HandlerOptions
+  Handler, HandlerRawOptions, HandlerOptions
 } from './handlerStore'
 
 export interface PluginConfig {
@@ -19,11 +19,19 @@ export default class Plugable {
     this.registerPlugins(plugins)
   }
 
-  eachPluginDo(callback: HandlerOptionsCallback) {
+  runPlugin(type: string, name: string, ...args) {
+    let handler: Handler = this.handlerStore.getHandler(type, name)
+
+    if (handler) {
+      // TODO 处理异步
+      return handler(...args)
+    }
+  }
+
+  eachPluginRun(callback: HandlerOptionsCallback) {
     let allHandlerOptions = this.handlerStore.getAllHandlerOptions()
 
     Object.entries(allHandlerOptions).forEach(([type, handlers]) => {
-      console.log('object', type, handlers);
       callback(type, handlers)
     });
   }

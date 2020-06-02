@@ -7,7 +7,15 @@ export default {
       ctx.body = 'doc'
     },
     create: async (ctx: Context, next: Next) => {
-      ctx.body = 'doc'
+      let { type, content } = ctx.request.body
+      let res = await ctx.postit.post(type, content)
+      console.log('object', res);
+      // await next()
+      if (!res) {
+        ctx.throw('wrong')
+      } else {
+        ctx.body = res
+      }
     },
   }
 }

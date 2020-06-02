@@ -12,7 +12,7 @@ export default class HandlerStore {
     let handlerOptions: HandlerOptions = this.getHandlerOptions(type)
 
     if (!handlerOptions) {
-      throw new Error('no handler')
+      throw new Error(`no handler '${name}' for type:${type}`)
     }
 
     return handlerOptions[name]

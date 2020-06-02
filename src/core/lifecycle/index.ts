@@ -23,10 +23,12 @@ export default class Lifecycle extends Plugable {
   }
 
   initAll() {
-    this.eachPluginDo((type, handlers) => {
+    this.eachPluginRun((type, handlers) => {
       handlers.init()
     })
   }
 
-
+  post(type: string, ...args) {
+    return this.runPlugin(type, 'post', ...args)
+  }
 }
