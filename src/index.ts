@@ -3,6 +3,6 @@
 
 export const version = '<%= version %>'
 
-export { HandlerOptions } from './core'
+export { HandlerRawOptions } from './core'
 
 export { default as Server, ServerOptions } from './server'

@@ -1,13 +1,13 @@
-import Plugable, { pluginsConfig } from './plugable'
-// import { Lifecycles } from './lifecycle'
+import { PluginConfig } from './plugable'
+import Lifecycle from './lifecycle'
 
 export interface PostitOptions {
-  plugins?: pluginsConfig[]
+  plugins?: PluginConfig[]
 }
 
 let uid = 1
 
-export default class Postit extends Plugable {
+export default class Postit extends Lifecycle {
   uid: number
   options: PostitOptions
 
@@ -17,19 +17,10 @@ export default class Postit extends Plugable {
     this.options = options
 
     this.uid = uid++
+
+    this.initAll()
   }
-
-  // run(type: string): void {
-  //   let handler: Handler = this.handlerStore.getHandler(type)
-  //   if (!handler) {
-  //     throw new Error('no handler')
-  //   }
-
-  //   Lifecycles.forEach(e => {
-  //     console.log(handler[e])
-  //   })
-  // }
 }
 
-export { pluginsConfig } from './plugable'
-export { HandlerOptions } from './handlerStore'
+export { PluginConfig } from './plugable'
+export { HandlerRawOptions } from './plugable/handlerStore'
