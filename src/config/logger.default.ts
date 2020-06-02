@@ -3,12 +3,12 @@ export default {
     "access": {
       "type": "dateFile",
       "pattern": "-yyyy-MM-dd.log",
-      "filename": "access.log"
+      "filename": "log/access.log"
     },
     "application": {
       "type": "dateFile",
       "pattern": "-yyyy-MM-dd.log",
-      "filename": "app.log"
+      "filename": "log/app.log"
     },
     "console": {
       "type": "console"
