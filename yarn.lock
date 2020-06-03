@@ -1290,6 +1290,10 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonschema@^1.1.0:
+  version "1.2.6"
+  resolved "http://10.158.249.13:4873/jsonschema/-/jsonschema-1.2.6.tgz#52b0a8e9dc06bbae7295249d03e4b9faee8a0c0b"
+
 keygrip@~1.1.0:
   version "1.1.0"
   resolved "http://10.158.249.13:4873/keygrip/-/keygrip-1.1.0.tgz#871b1681d5e159c62a445b0c74b615e0917e7226"
@@ -1343,6 +1347,12 @@ koa-convert@^1.2.0:
   dependencies:
     co "^4.6.0"
     koa-compose "^3.0.0"
+
+koa-jsonschema@^0.1.0:
+  version "0.1.0"
+  resolved "http://10.158.249.13:4873/koa-jsonschema/-/koa-jsonschema-0.1.0.tgz#c620bbbf56beda7950df454690f7a135dae8841c"
+  dependencies:
+    jsonschema "^1.1.0"
 
 koa-log4@^2.3.2:
   version "2.3.2"

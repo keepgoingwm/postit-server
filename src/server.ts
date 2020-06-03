@@ -1,5 +1,6 @@
-import Koa from 'koa'
+import Koa, { Context, Next } from 'koa'
 import bodyParser, { } from 'koa-bodyparser'
+// import jsonschema from 'koa-jsonschema'
 
 import conf, { mergeConfig } from './config/index';
 import { accessLogger, logger, Logger } from './logger'
@@ -46,14 +47,31 @@ export default class Server {
 
     this.app.use(reqHandler)
     this.app.use(bodyParser({
-      // onerror: function (err, ctx) {
-      //   ctx.throw('body parse error', 422);
-      // }
+      onerror: function (err, ctx: Context) {
+        ctx.throw('body parse error', 422);
+      }
     }))
+    this.app.use(async (ctx: Context, next: Next) => {
+      try {
+        await next()
+      } catch (e) {
+        if (e.message === 'JSONSchema errors') {
+          // If validation errors, errors will store in `ctx.schemaErrors`.
+          ctx.body = ctx.schemaErrors.map(e => e.message).join(', ');
+        }
+      }
+    })
+    // this.app.use(jsonschema({
+    //   type: 'object',
+    //   properties: {
+    //     a: { type: 'string' },
+    //     b: { type: 'string' }
+    //   },
+    //   required: ['a', 'b']
+    // }))
     this.app.use(router.middleware())
 
     this.app.listen(this.options.port)
-
     this.logger.info(`app listen on ${this.options.port}`)
   }
 }
