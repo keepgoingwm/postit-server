@@ -1,5 +1,6 @@
+import path from 'path'
 import Koa, { Context, Next } from 'koa'
-import bodyParser, { } from 'koa-bodyparser'
+import koaBody, { } from 'koa-body'
 // import jsonschema from 'koa-jsonschema'
 
 import conf, { mergeConfig } from './config/index';
@@ -46,8 +47,20 @@ export default class Server {
     this.app.use(accessLogger())
 
     this.app.use(reqHandler)
-    this.app.use(bodyParser({
-      onerror: function (err, ctx: Context) {
+    this.app.use(koaBody({
+      multipart: true,
+      // encoding: 'gzip',
+      formidable: {
+        uploadDir: path.join(__dirname, 'public/upload/'),
+        keepExtensions: true,
+        maxFieldsSize: 2 * 1024 * 1024,
+        onFileBegin: (name, file) => {
+          // console.log(`name: ${name}`);
+          // console.log(file);
+        },
+      },
+      onError: function (err, ctx: Context) {
+        console.log(err);
         ctx.throw('body parse error', 422);
       }
     }))
