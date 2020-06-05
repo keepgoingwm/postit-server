@@ -193,7 +193,15 @@ acorn@^7.1.1:
   version "7.2.0"
   resolved "http://10.158.249.13:4873/acorn/-/acorn-7.2.0.tgz#17ea7e40d7c8640ff54a694c889c26f31704effe"
 
-ajv@^6.10.0, ajv@^6.10.2:
+ajv-errors@^1.0.1:
+  version "1.0.1"
+  resolved "http://10.158.249.13:4873/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
+
+ajv-keywords@^3.4.1:
+  version "3.4.1"
+  resolved "http://10.158.249.13:4873/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
+
+ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2:
   version "6.12.2"
   resolved "http://10.158.249.13:4873/ajv/-/ajv-6.12.2.tgz#c629c5eced17baf314437918d2da88c99d5958cd"
   dependencies:
@@ -267,6 +275,10 @@ array.prototype.flat@^1.2.1:
     define-properties "^1.1.3"
     es-abstract "^1.17.0-next.1"
 
+assign-symbols@^1.0.0:
+  version "1.0.0"
+  resolved "http://10.158.249.13:4873/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
+
 astral-regex@^1.0.0:
   version "1.0.0"
   resolved "http://10.158.249.13:4873/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
@@ -304,6 +316,10 @@ braces@~3.0.2:
   resolved "http://10.158.249.13:4873/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
   dependencies:
     fill-range "^7.0.1"
+
+buffer-from@^1.0.0:
+  version "1.1.1"
+  resolved "http://10.158.249.13:4873/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
 
 builtin-modules@^3.1.0:
   version "3.1.0"
@@ -837,6 +853,13 @@ extend-shallow@^2.0.1:
   dependencies:
     is-extendable "^0.1.0"
 
+extend-shallow@^3.0.2:
+  version "3.0.2"
+  resolved "http://10.158.249.13:4873/extend-shallow/-/extend-shallow-3.0.2.tgz#26a71aaf073b39fb2127172746131c2704028db8"
+  dependencies:
+    assign-symbols "^1.0.0"
+    is-extendable "^1.0.1"
+
 external-editor@^3.0.3:
   version "3.1.0"
   resolved "http://10.158.249.13:4873/external-editor/-/external-editor-3.1.0.tgz#cb03f740befae03ea4d283caed2741a83f335495"
@@ -1171,6 +1194,12 @@ is-extendable@^0.1.0:
   version "0.1.1"
   resolved "http://10.158.249.13:4873/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
 
+is-extendable@^1.0.1:
+  version "1.0.1"
+  resolved "http://10.158.249.13:4873/is-extendable/-/is-extendable-1.0.1.tgz#a7470f9e426733d81bd81e1155264e3a3507cab4"
+  dependencies:
+    is-plain-object "^2.0.4"
+
 is-extglob@^2.1.1:
   version "2.1.1"
   resolved "http://10.158.249.13:4873/is-extglob/-/is-extglob-2.1.1.tgz#a88c02535791f02ed37c76a1b9ea9773c833f8c2"
@@ -1224,6 +1253,12 @@ is-path-inside@^3.0.1:
   version "3.0.2"
   resolved "http://10.158.249.13:4873/is-path-inside/-/is-path-inside-3.0.2.tgz#f5220fc82a3e233757291dddc9c5877f2a1f3017"
 
+is-plain-object@^2.0.4:
+  version "2.0.4"
+  resolved "http://10.158.249.13:4873/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
+  dependencies:
+    isobject "^3.0.1"
+
 is-reference@^1.1.2:
   version "1.1.4"
   resolved "http://10.158.249.13:4873/is-reference/-/is-reference-1.1.4.tgz#3f95849886ddb70256a3e6d062b1a68c13c51427"
@@ -1265,6 +1300,10 @@ isarray@^1.0.0, isarray@~1.0.0:
 isexe@^2.0.0:
   version "2.0.0"
   resolved "http://10.158.249.13:4873/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
+
+isobject@^3.0.1:
+  version "3.0.1"
+  resolved "http://10.158.249.13:4873/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
 js-tokens@^4.0.0:
   version "4.0.0"
@@ -1381,6 +1420,19 @@ koa-rest-router@^1.0.1:
     koa-better-router "^2.1.1"
     lazy-cache "^2.0.2"
     methods "^1.1.2"
+
+koa-route-schema@^0.0.1:
+  version "0.0.1"
+  resolved "http://10.158.249.13:4873/koa-route-schema/-/koa-route-schema-0.0.1.tgz#d1daee096b3ca9d671feab33a986b5e6ca457822"
+  dependencies:
+    ajv "^6.12.2"
+    ajv-errors "^1.0.1"
+    ajv-keywords "^3.4.1"
+    extend-shallow "^3.0.2"
+    koa-compose "^4.1.0"
+    koa-convert "^1.2.0"
+    lazy-cache "^2.0.2"
+    path-match "^1.2.4"
 
 koa@^2.12.0:
   version "2.12.0"
@@ -2035,6 +2087,17 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+source-map-support@^0.5.19:
+  version "0.5.19"
+  resolved "http://10.158.249.13:4873/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
+source-map@^0.6.0:
+  version "0.6.1"
+  resolved "http://10.158.249.13:4873/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
 sourcemap-codec@^1.4.4:
   version "1.4.8"

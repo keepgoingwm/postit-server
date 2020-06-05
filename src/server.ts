@@ -1,12 +1,11 @@
 import path from 'path'
-import Koa, { Context, Next } from 'koa'
+import Koa, { Context } from 'koa'
 import koaBody, { } from 'koa-body'
-// import jsonschema from 'koa-jsonschema'
 
 import conf, { mergeConfig } from './config/index';
 import { accessLogger, logger, Logger } from './logger'
 import reqHandler from './req'
-import router from './router'
+import router from './route-schema/router';
 import Postit, { PostitOptions } from './core'
 
 import { randomString } from './util'
@@ -40,7 +39,7 @@ export default class Server {
     this.app.context.options = this.options
     this.logger.info(`init and mount Postit instance`)
 
-    this.app.on('error', err => {
+    this.app.on('error', (err: Error, ctx: Context) => {
       console.log(err);
       this.logger.error(err)
     })
@@ -59,29 +58,12 @@ export default class Server {
           // console.log(file);
         },
       },
-      onError: function (err, ctx: Context) {
-        console.log(err);
+      onError: (err: Error, ctx: Context) => {
+        this.logger.warn(err);
         ctx.throw('body parse error', 422);
       }
     }))
-    this.app.use(async (ctx: Context, next: Next) => {
-      try {
-        await next()
-      } catch (e) {
-        if (e.message === 'JSONSchema errors') {
-          // If validation errors, errors will store in `ctx.schemaErrors`.
-          ctx.body = ctx.schemaErrors.map(e => e.message).join(', ');
-        }
-      }
-    })
-    // this.app.use(jsonschema({
-    //   type: 'object',
-    //   properties: {
-    //     a: { type: 'string' },
-    //     b: { type: 'string' }
-    //   },
-    //   required: ['a', 'b']
-    // }))
+
     this.app.use(router.middleware())
 
     this.app.listen(this.options.port)
