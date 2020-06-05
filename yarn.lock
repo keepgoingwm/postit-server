@@ -1421,6 +1421,10 @@ koa-rest-router@^1.0.1:
     lazy-cache "^2.0.2"
     methods "^1.1.2"
 
+koa-route-schema-yapi@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/koa-route-schema-yapi/-/koa-route-schema-yapi-0.0.1.tgz#1291f49232faaeafb81495bcb6bd49660916aec9"
+
 koa-route-schema@^0.0.1:
   version "0.0.1"
   resolved "http://10.158.249.13:4873/koa-route-schema/-/koa-route-schema-0.0.1.tgz#d1daee096b3ca9d671feab33a986b5e6ca457822"

@@ -1,6 +1,6 @@
 import path from 'path'
 import compose from 'koa-compose'
-import koaBody, { } from 'koa-body'
+import koaBody from 'koa-body'
 import { Context, Next } from 'koa'
 
 let reqHandler = async (ctx: Context, next: Next) => {
