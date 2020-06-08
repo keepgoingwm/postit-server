@@ -20,7 +20,7 @@ export default class Plugable {
   }
 
   runPlugin(type: string, name: string, ...args) {
-    let handler: Handler = this.handlerStore.getHandler(type, name)
+    const handler: Handler = this.handlerStore.getHandler(type, name)
 
     if (handler) {
       // TODO 处理异步
@@ -29,7 +29,7 @@ export default class Plugable {
   }
 
   eachPluginRun(callback: HandlerOptionsCallback) {
-    let allHandlerOptions = this.handlerStore.getAllHandlerOptions()
+    const allHandlerOptions = this.handlerStore.getAllHandlerOptions()
 
     Object.entries(allHandlerOptions).forEach(([type, handlers]) => {
       callback(type, handlers)

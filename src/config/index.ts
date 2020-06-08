@@ -1,9 +1,9 @@
 import nodeConfig from 'config'
 
-const postitConfig = nodeConfig.get('postit')
-
 import loggerDefaultConfig from './logger.default'
 import coreDefaultConfig from './core.default'
+
+const postitConfig = nodeConfig.get('postit')
 
 const conf = postitConfig.util.extendDeep({
   logger: loggerDefaultConfig,

@@ -4,7 +4,7 @@ import conf from '../config'
 
 import docController from '../controller/doc'
 
-let router: KoaRestRouter = Router({ prefix: conf.apiPrefix || '<%= apiPrefix %>' || '' }).loadMethods()
+const router: KoaRestRouter = Router({ prefix: conf.apiPrefix || '<%= apiPrefix %>' || '' }).loadMethods()
 
 router.resource(docController.name, docController.controller)
 

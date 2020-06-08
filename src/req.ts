@@ -3,7 +3,7 @@ import compose from 'koa-compose'
 import koaBody from 'koa-body'
 import { Context, Next } from 'koa'
 
-let reqHandler = async (ctx: Context, next: Next) => {
+const reqHandler = async (ctx: Context, next: Next) => {
   if (ctx.method === 'post' && !ctx.is('json')) {
     return ctx.throw(400, 'only json supported')
   }
@@ -23,9 +23,9 @@ export default function genReqMiddleware(options) {
       keepExtensions: true,
       maxFieldsSize: 2 * 1024 * 1024,
       onFileBegin: (name, file) => {
-        // console.log(`name: ${name}`);
-        // console.log(file);
-      },
+        console.log(`name: ${name}`)
+        console.log(file)
+      }
     },
     onError: (err: Error, ctx: Context) => {
       this.logger.warn(err);

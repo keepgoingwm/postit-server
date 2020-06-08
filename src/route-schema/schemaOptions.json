@@ -27,7 +27,7 @@
         "project_id": 29,
         "req_params": [
           {
-            "_id": "5ed882ab0b3db220e529b612",
+            "_id": "5ed9e8ed0b3db2790529b617",
             "name": "id",
             "desc": ""
           }
@@ -35,9 +35,24 @@
         "res_body_type": "json",
         "uid": 11,
         "add_time": 1591173230,
-        "up_time": 1591247531,
-        "req_query": [],
-        "req_headers": [],
+        "up_time": 1591339245,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ed9e8ed0b3db2321b29b618",
+            "name": "type",
+            "example": "x1",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ed9e8ed0b3db2172729b619",
+            "name": "X-Csrf-Token",
+            "value": "123"
+          }
+        ],
         "req_body_form": [],
         "__v": 0,
         "desc": "",

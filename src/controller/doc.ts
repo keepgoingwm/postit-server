@@ -1,15 +1,14 @@
-import { Context, Next } from 'koa'
-
+import { Context } from 'koa'
 
 export default {
   name: 'docs',
   controller: {
-    index(ctx: Context, next: Next) {
+    index(ctx: Context): void {
       ctx.body = 'doc'
     },
-    create: async (ctx: Context, next: Next) => {
-      let { type, content } = ctx.request.body
-      let res = await ctx.postit.post(type, content)
+    create: async (ctx: Context): Promise<void> => {
+      const { type, content } = ctx.request.body
+      const res = await ctx.postit.post(type, content)
       console.log('object', res);
       // await next()
       if (!res) {
@@ -18,7 +17,7 @@ export default {
         ctx.body = res
       }
     },
-    show: async (ctx: Context, next: Next) => {
+    show: async (ctx: Context): Promise<void> => {
       ctx.throw(401, 'access_denied', { user: 'user' })
     }
   }

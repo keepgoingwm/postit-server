@@ -1,4 +1,4 @@
-import Koa, { Context } from 'koa'
+import Koa from 'koa'
 
 import conf, { mergeConfig } from './config/index';
 import { accessLogger, logger, Logger } from './logger'
@@ -9,9 +9,9 @@ import Postit, { PostitOptions } from './core'
 import { randomString } from './util'
 
 export interface ServerOptions {
-  port?: number
-  core?: PostitOptions
-  uploadDir?: PostitOptions
+  port?: number;
+  core?: PostitOptions;
+  uploadDir?: PostitOptions;
 }
 
 export default class Server {
@@ -29,16 +29,16 @@ export default class Server {
     this.options.core = mergeConfig(conf.core, core)
   }
 
-  start() {
+  start(): void {
     this.app = new Koa()
-    this.app.keys = Array.apply(null, { length: 5 }).map(randomString)
+    this.app.keys = Array.apply(null, { length: 5 }).map(randomString) // eslint-disable-line prefer-spread
 
     this.app.context.postit = this.postit = new Postit(this.options.core)
     this.app.context.logger = this.logger
     this.app.context.options = this.options
-    this.logger.info(`init and mount Postit instance`)
+    this.logger.info('init and mount Postit instance')
 
-    this.app.on('error', (err: Error, ctx: Context) => {
+    this.app.on('error', (err: Error) => {
       console.log(err);
       this.logger.error(err)
     })
@@ -52,7 +52,7 @@ export default class Server {
   }
 }
 
-declare module "koa" {
+declare module 'koa' {
   interface Context {
     options: ServerOptions
     postit: Postit

@@ -1,15 +1,15 @@
-export type HandlerRawOptions = { [name: string]: any }
-export type HandlerOptions = { [name: string]: Handler }
 
 export interface Handler {
   (content?: string): string
 }
+export type HandlerRawOptions = { [name: string]: unknown }
+export type HandlerOptions = { [name: string]: Handler }
 
 export default class HandlerStore {
   store: { [type: string]: HandlerOptions } = {}
 
   getHandler(type: string, name: string): Handler {
-    let handlerOptions: HandlerOptions = this.getHandlerOptions(type)
+    const handlerOptions: HandlerOptions = this.getHandlerOptions(type)
 
     if (!handlerOptions) {
       throw new Error(`no handler '${name}' for type:${type}`)
@@ -27,9 +27,9 @@ export default class HandlerStore {
   }
 
   registerHandler(type: string, options: HandlerRawOptions): void {
-    if (this.hasHandlerOptions(type)) {
+    // if (this.hasHandlerOptions(type)) {
 
-    }
+    // }
 
     this.store[type] = parseHandler(options)
   }

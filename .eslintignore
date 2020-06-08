@@ -2,11 +2,8 @@
 /lib
 /log
 
-eslint.json
-tslint.json
-tsconfig.dts.json
-tsconfig.json
 rollup.config.js
+*.json
 
 /config/*
 !config/default.example.js
