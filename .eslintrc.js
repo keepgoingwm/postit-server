@@ -1,13 +1,17 @@
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'eslint-config-standard'
-  ],
+  // parser: '@typescript-eslint/parser',
+  // plugins: [
+  //   '@typescript-eslint',
+  // ],
+  // extends: [
+  //   'plugin:@typescript-eslint/recommended',
+  //   'eslint-config-standard'
+  // ],
+  extends: 'standard-with-typescript',
+  parserOptions: {
+    project: './tsconfig.json'
+  }
   env: {
     'es6': true,
     'node': true
@@ -23,7 +27,7 @@ module.exports = {
     'padded-blocks': 0,
     'space-before-function-paren': 0,
     'standard/no-callback-literal': 0,
-    // '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
 }

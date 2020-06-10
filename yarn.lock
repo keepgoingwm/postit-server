@@ -125,6 +125,24 @@
   dependencies:
     "@types/node" "*"
 
+"@types/ajv-errors@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/ajv-errors/-/ajv-errors-1.0.2.tgz#963eadef9bfb51c47d110281433b626324a63329"
+  dependencies:
+    ajv "*"
+
+"@types/ajv-keywords@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@types/ajv-keywords/-/ajv-keywords-3.4.0.tgz#94f7a269bd5e27e1d5d99e13b77600fe50096e3f"
+  dependencies:
+    ajv "^6.9.1"
+
+"@types/ajv@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/ajv/-/ajv-1.0.0.tgz#4fb2440742f2f6c30e7fb0797b839fc6f696682a"
+  dependencies:
+    ajv "*"
+
 "@types/body-parser@*":
   version "1.19.0"
   resolved "http://10.158.249.13:4873/@types%2fbody-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
@@ -282,6 +300,24 @@
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
+"@typescript-eslint/experimental-utils@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-3.2.0.tgz#4dab8fc9f44f059ec073470a81bb4d7d7d51e6c5"
+  dependencies:
+    "@types/json-schema" "^7.0.3"
+    "@typescript-eslint/typescript-estree" "3.2.0"
+    eslint-scope "^5.0.0"
+    eslint-utils "^2.0.0"
+
+"@typescript-eslint/parser@^3.0.1":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-3.2.0.tgz#d9d7867456b1b8ecae9e724269b0bc932f06cbca"
+  dependencies:
+    "@types/eslint-visitor-keys" "^1.0.0"
+    "@typescript-eslint/experimental-utils" "3.2.0"
+    "@typescript-eslint/typescript-estree" "3.2.0"
+    eslint-visitor-keys "^1.1.0"
+
 "@typescript-eslint/parser@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-3.1.0.tgz#9c02ba5d88ad2355672f39e6cd4176f172dd47f8"
@@ -294,6 +330,18 @@
 "@typescript-eslint/typescript-estree@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-3.1.0.tgz#eaff52d31e615e05b894f8b9d2c3d8af152a5dd2"
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash "^4.17.15"
+    semver "^7.3.2"
+    tsutils "^3.17.1"
+
+"@typescript-eslint/typescript-estree@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-3.2.0.tgz#c735f1ca6b4d3cd671f30de8c9bde30843e7ead8"
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
@@ -330,7 +378,7 @@ ajv-keywords@^3.4.1:
   version "3.4.1"
   resolved "http://10.158.249.13:4873/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
 
-ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2:
+ajv@*, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.9.1:
   version "6.12.2"
   resolved "http://10.158.249.13:4873/ajv/-/ajv-6.12.2.tgz#c629c5eced17baf314437918d2da88c99d5958cd"
   dependencies:
@@ -816,6 +864,13 @@ escape-html@^1.0.3:
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "http://10.158.249.13:4873/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
+
+eslint-config-standard-with-typescript@^18.0.2:
+  version "18.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard-with-typescript/-/eslint-config-standard-with-typescript-18.0.2.tgz#eb02d5358b17fe083c6f993ff829492c8f96b18f"
+  dependencies:
+    "@typescript-eslint/parser" "^3.0.1"
+    eslint-config-standard "^14.1.1"
 
 eslint-config-standard@^14.1.1:
   version "14.1.1"
@@ -1542,7 +1597,7 @@ koa-compose@^3.0.0, koa-compose@^3.1.0:
 
 koa-compose@^4.1.0:
   version "4.1.0"
-  resolved "http://10.158.249.13:4873/koa-compose/-/koa-compose-4.1.0.tgz#507306b9371901db41121c812e923d0d67d3e877"
+  resolved "https://registry.yarnpkg.com/koa-compose/-/koa-compose-4.1.0.tgz#507306b9371901db41121c812e923d0d67d3e877"
 
 koa-convert@^1.2.0:
   version "1.2.0"
@@ -1577,10 +1632,14 @@ koa-route-schema-yapi@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/koa-route-schema-yapi/-/koa-route-schema-yapi-0.0.1.tgz#1291f49232faaeafb81495bcb6bd49660916aec9"
 
-koa-route-schema@^0.0.1:
-  version "0.0.1"
-  resolved "http://10.158.249.13:4873/koa-route-schema/-/koa-route-schema-0.0.1.tgz#d1daee096b3ca9d671feab33a986b5e6ca457822"
+koa-route-schema@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/koa-route-schema/-/koa-route-schema-0.0.2.tgz#98b8cfba600748d1aefac1998d75fde6504a1775"
   dependencies:
+    "@types/ajv" "^1.0.0"
+    "@types/ajv-errors" "^1.0.2"
+    "@types/ajv-keywords" "^3.4.0"
+    "@types/koa" "^2.11.3"
     ajv "^6.12.2"
     ajv-errors "^1.0.1"
     ajv-keywords "^3.4.1"

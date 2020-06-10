@@ -7,6 +7,7 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noImplicitUseStrict": true,
+    "experimentalDecorators": true,
     "importHelpers": true,
     "resolveJsonModule": true,
     "allowJs": true,
@@ -16,5 +17,5 @@
     "rootDir": "./src",
     "outDir": "lib"
   },
-  "include": ["src/*.ts", "src/route-schema/router.ts"]
+  "include": ["src/**/*.ts"]
 }
