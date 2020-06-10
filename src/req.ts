@@ -1,9 +1,9 @@
 import path from 'path'
 import compose from 'koa-compose'
 import koaBody from 'koa-body'
-import { Context, Next } from 'koa'
+import { Context, Next, Middleware } from 'koa'
 
-const reqHandler = async (ctx: Context, next: Next) => {
+const reqHandler = async (ctx: Context, next: Next): Promise<any> => {
   if (ctx.method === 'post' && !ctx.is('json')) {
     return ctx.throw(400, 'only json supported')
   }
@@ -14,7 +14,7 @@ const reqHandler = async (ctx: Context, next: Next) => {
   return await next()
 }
 
-export default function genReqMiddleware(options) {
+export default function genReqMiddleware(options): Middleware {
   return compose([reqHandler, koaBody({
     multipart: true,
     // encoding: 'gzip',
@@ -28,8 +28,8 @@ export default function genReqMiddleware(options) {
       }
     },
     onError: (err: Error, ctx: Context) => {
-      this.logger.warn(err);
-      ctx.throw('body parse error', 422);
+      this.logger.warn(err)
+      ctx.throw('body parse error', 422)
     }
   })])
 }

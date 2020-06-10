@@ -1,9 +1,7 @@
 
-export interface Handler {
-  (content?: string): string
-}
-export type HandlerRawOptions = { [name: string]: any }
-export type HandlerOptions = { [name: string]: Handler }
+export type Handler = (content?: string) => string
+export interface HandlerRawOptions { [name: string]: any }
+export interface HandlerOptions { [name: string]: Handler }
 
 export default class HandlerStore {
   store: { [type: string]: HandlerOptions } = {}

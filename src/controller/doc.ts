@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Context } from 'koa'
 
 export default {
@@ -9,7 +10,7 @@ export default {
     create: async (ctx: Context): Promise<void> => {
       const { type, content } = ctx.request.body
       const res = await ctx.postit.post(type, content)
-      console.log('object', res);
+      console.log('object', res)
       // await next()
       if (!res) {
         ctx.throw('wrong')

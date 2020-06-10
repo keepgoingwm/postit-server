@@ -1,17 +1,17 @@
 import Koa from 'koa'
 
-import conf, { mergeConfig } from './config/index';
+import conf, { mergeConfig } from './config/index'
 import { accessLogger, logger, Logger } from './logger'
 import genReqMiddleware from './req'
-import router from './route-schema/router';
+import router from './route-schema/router'
 import Postit, { PostitOptions } from './core'
 
 import { randomString } from './util'
 
 export interface ServerOptions {
-  port?: number;
-  core?: PostitOptions;
-  uploadDir?: PostitOptions;
+  port?: number
+  core?: PostitOptions
+  uploadDir?: PostitOptions
 }
 
 export default class Server {
@@ -39,7 +39,7 @@ export default class Server {
     this.logger.info('init and mount Postit instance')
 
     this.app.on('error', (err: Error) => {
-      console.log(err);
+      console.log(err)
       this.logger.error(err)
     })
     this.app.use(accessLogger())

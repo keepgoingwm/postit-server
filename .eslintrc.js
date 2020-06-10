@@ -9,25 +9,26 @@ module.exports = {
   //   'eslint-config-standard'
   // ],
   extends: 'standard-with-typescript',
-  parserOptions: {
-    project: './tsconfig.json'
-  }
   env: {
     'es6': true,
     'node': true
   },
   parserOptions: {
-    'ecmaVersion': 6,
-    'sourceType': 'module'
+    project: './tsconfig.json',
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
   rules: {
-    'semi': 0,
     'no-multiple-empty-lines': 0,
     'no-new': 0,
     'padded-blocks': 0,
     'space-before-function-paren': 0,
     'standard/no-callback-literal': 0,
     '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
   },
 }
