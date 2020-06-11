@@ -3,12 +3,10 @@ import HandlerStore, {
 } from './handlerStore'
 
 export interface PluginConfig {
-  type: string,
+  type: string
   handlers: HandlerRawOptions
 }
-export interface HandlerOptionsCallback {
-  (type: string, handlers: HandlerOptions): void
-}
+export type HandlerOptionsCallback = (type: string, handlers: HandlerOptions) => void
 
 export default class Plugable {
   // hooks: { [name: string]: any }
@@ -19,7 +17,7 @@ export default class Plugable {
     this.registerPlugins(plugins)
   }
 
-  runPlugin(type: string, name: string, ...args) {
+  runPlugin(type: string, name: string, ...args): any {
     const handler: Handler = this.handlerStore.getHandler(type, name)
 
     if (handler) {
@@ -28,17 +26,17 @@ export default class Plugable {
     }
   }
 
-  eachPluginRun(callback: HandlerOptionsCallback) {
+  eachPluginRun(callback: HandlerOptionsCallback): void {
     const allHandlerOptions = this.handlerStore.getAllHandlerOptions()
 
     Object.entries(allHandlerOptions).forEach(([type, handlers]) => {
       callback(type, handlers)
-    });
+    })
   }
 
-  registerPlugins(config: PluginConfig[]) {
+  registerPlugins(config: PluginConfig[]): void {
     config.forEach(plugin => {
       this.handlerStore.registerHandler(plugin.type, plugin.handlers)
-    });
+    })
   }
 }

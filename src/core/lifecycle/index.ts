@@ -18,11 +18,11 @@ export const Lifecycles: string[] = [
 ]
 
 export default class Lifecycle extends Plugable {
-  /* eslint-disable no-useless-constructor */
+  /* eslint-disable @typescript-eslint/no-useless-constructor */
   constructor(plugins: PluginConfig[]) {
     super(plugins)
   }
-  /* eslint-enable no-useless-constructor */
+  /* eslint-enable @typescript-eslint/no-useless-constructor */
 
   initAll(): void {
     this.eachPluginRun((type, handlers) => {
@@ -30,7 +30,7 @@ export default class Lifecycle extends Plugable {
     })
   }
 
-  post(type: string, ...args: string[]) {
+  post(type: string, ...args: string[]): any {
     return this.runPlugin(type, 'post', ...args)
   }
 }

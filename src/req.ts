@@ -8,7 +8,10 @@ const reqHandler = async (ctx: Context, next: Next): Promise<any> => {
     return ctx.throw(400, 'only json supported')
   }
   if (!ctx.accepts('json')) {
-    return ctx.throw(406, 'only json supported')
+    return ctx.throw(406, 'only json type response supported')
+  }
+  if (!ctx.acceptsCharsets('utf-8')) {
+    return ctx.throw(406, 'only utf-8 charsets supported')
   }
 
   return await next()
