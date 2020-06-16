@@ -101,6 +101,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@ls-lint/ls-lint@^1.8.1":
+  version "1.8.1"
+  resolved "https://r.cnpmjs.org/@ls-lint/ls-lint/download/@ls-lint/ls-lint-1.8.1.tgz#c156e6dd3f48501d234e0705f20073c701528929"
+
 "@rollup/pluginutils@^3.0.8":
   version "3.0.10"
   resolved "http://10.158.249.13:4873/@rollup%2fpluginutils/-/pluginutils-3.0.10.tgz#a659b9025920378494cd8f8c59fbf9b3a50d5f12"

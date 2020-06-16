@@ -1,0 +1,7 @@
+ls:
+  .\{src,config,types}:
+    .js: kebab-case | regex:[a-z]+\.[a-z]+
+    .ts: camelCase | regex:[a-z]+\.[a-z]+
+    .d.ts: camelCase
+    .spec.ts: camelCase | PascalCase
+    .mock.ts: camelCase
