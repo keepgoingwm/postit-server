@@ -25,7 +25,6 @@ export default class Server {
     core = {}
   }: ServerOptions = {}) {
     this.options.port = port || conf.port || 3000
-
     this.options.core = mergeConfig(conf.core, core)
   }
 

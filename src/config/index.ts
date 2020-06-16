@@ -4,12 +4,14 @@ import loggerDefaultConfig from './logger.default'
 import coreDefaultConfig from './core.default'
 
 const postitConfig = nodeConfig.get('postit')
+const mergeConfig = postitConfig.util.extendDeep
 
-const conf = postitConfig.util.extendDeep({
+const conf = mergeConfig({
   logger: loggerDefaultConfig,
   core: coreDefaultConfig
 }, postitConfig)
 
-export const mergeConfig = postitConfig.util.extendDeep
-
+export {
+  mergeConfig
+}
 export default conf

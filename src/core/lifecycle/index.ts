@@ -18,15 +18,14 @@ export const Lifecycles: string[] = [
 ]
 
 export default class Lifecycle extends Plugable {
-  /* eslint-disable @typescript-eslint/no-useless-constructor */
   constructor(plugins: PluginConfig[]) {
     super(plugins)
+    this.initAll()
   }
-  /* eslint-enable @typescript-eslint/no-useless-constructor */
 
   initAll(): void {
     this.eachPluginRun((type, handlers) => {
-      handlers.init()
+      handlers.init && handlers.init()
     })
   }
 

@@ -17,8 +17,6 @@ export default class Postit extends Lifecycle {
     this.options = options
 
     this.uid = uid++
-
-    this.initAll()
   }
 }
 

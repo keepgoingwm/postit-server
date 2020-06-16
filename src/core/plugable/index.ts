@@ -10,7 +10,7 @@ export type HandlerOptionsCallback = (type: string, handlers: HandlerOptions) =>
 
 export default class Plugable {
   // hooks: { [name: string]: any }
-  handlerStore: HandlerStore
+  private readonly handlerStore: HandlerStore
 
   constructor(plugins: PluginConfig[] = []) {
     this.handlerStore = new HandlerStore()
@@ -26,7 +26,7 @@ export default class Plugable {
     }
   }
 
-  eachPluginRun(callback: HandlerOptionsCallback): void {
+  protected eachPluginRun(callback: HandlerOptionsCallback): void {
     const allHandlerOptions = this.handlerStore.getAllHandlerOptions()
 
     Object.entries(allHandlerOptions).forEach(([type, handlers]) => {
