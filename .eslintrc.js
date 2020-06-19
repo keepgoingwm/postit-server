@@ -30,5 +30,6 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
   },
 }

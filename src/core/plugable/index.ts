@@ -1,6 +1,7 @@
 import HandlerStore, {
   Handler, HandlerRawOptions, HandlerOptions
 } from './handlerStore'
+import { promisify } from '../util'
 
 export interface PluginConfig {
   type: string
@@ -17,13 +18,23 @@ export default class Plugable {
     this.registerPlugins(plugins)
   }
 
-  runPlugin(type: string, name: string, ...args): any {
+  protected runPlugin(type: string, name: string, ...args): any {
     const handler: Handler = this.handlerStore.getHandler(type, name)
 
     if (handler) {
       // TODO 处理异步
-      return handler(...args)
+      return promisify(handler, ...args)
+    } else {
+      return Promise.resolve(null)
     }
+  }
+
+  protected async serialRun(type, names: string[], ...args): Promise<any> {
+    let res = null
+    for (const name of names) {
+      res = await this.runPlugin(type, name, res, ...args)
+    }
+    return res
   }
 
   protected eachPluginRun(callback: HandlerOptionsCallback): void {

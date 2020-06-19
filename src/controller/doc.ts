@@ -9,7 +9,7 @@ export default {
     },
     create: async (ctx: Context): Promise<void> => {
       const { type, content } = ctx.request.body
-      const res = await ctx.postit.post(type, content)
+      const res = await ctx.postit.post(type, content, ctx.request.body)
       console.log('object', res)
       // await next()
       if (!res) {
